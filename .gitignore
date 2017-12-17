@@ -1,3 +1,4 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
 # Binaries for programs and plugins
 *.exe
 *.dll
@@ -12,3 +13,15 @@
 
 # Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
 .glide/
+
+# running
+*.exe~
+
+# debug
+debug
+debug.test
+
+# temp
+*.tmp
+
+*.log
