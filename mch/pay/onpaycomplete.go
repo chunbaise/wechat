@@ -2,12 +2,14 @@ package pay
 
 import "time"
 
-type PayCompleteResponse struct {
-	XMLName struct{} `xml:"xml" json:"-"`
-
+type PayReturn struct {
 	// 必选返回
 	ReturnCode string `xml:"return_code"` // 返回状态码
 	ReturnMsg  string `xml:"return_msg"`  // 返回信息
+}
+
+type PayCompleteResponse struct {
+	XMLName struct{} `xml:"xml" json:"-"`
 
 	// 以下字段在return_code为SUCCESS的时候有返回
 	Appid      string `xml:"appid"`       // 小程序ID
