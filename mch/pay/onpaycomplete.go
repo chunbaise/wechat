@@ -32,10 +32,10 @@ type PayCompleteResponse struct {
 	// 交易相关
 	TradeType          string `xml:"trade_type"`           // 调用接口提交的交易类型，取值如下：JSAPI，NATIVE，APP，MICROPAY，详细说明见参数规定
 	BankType           string `xml:"bank_type"`            // 银行类型，采用字符串类型的银行标识
-	TotalFee           int    `xml:"total_fee"`            // 订单总金额，单位为分
-	SettlementTotalFee int    `xml:"settlement_total_fee"` // 应结订单金额=订单金额-非充值代金券金额，应结订单金额<=订单金额。
+	TotalFee           int64  `xml:"total_fee"`            // 订单总金额，单位为分
+	SettlementTotalFee int64  `xml:"settlement_total_fee"` // 应结订单金额=订单金额-非充值代金券金额，应结订单金额<=订单金额。
 	FeeType            string `xml:"fee_type"`             // 货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY，其他值列表详见货币类型
-	CashFee            int    `xml:"cash_fee"`             // 现金支付金额订单现金支付金额，详见支付金额
+	CashFee            int64  `xml:"cash_fee"`             // 现金支付金额订单现金支付金额，详见支付金额
 	CashFeeType        string `xml:"cash_fee_type"`        // 货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY，其他值列表详见货币类型
 
 	// 代金券相关
