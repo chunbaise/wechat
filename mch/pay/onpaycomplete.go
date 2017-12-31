@@ -11,6 +11,7 @@ type PayReturn struct {
 type PayCompleteResponse struct {
 	XMLName struct{} `xml:"xml" json:"-"`
 
+	PayReturn
 	// 以下字段在return_code为SUCCESS的时候有返回
 	Appid      string `xml:"appid"`       // 小程序ID
 	MchId      string `xml:"mch_id"`      // 商户号
@@ -38,8 +39,11 @@ type PayCompleteResponse struct {
 	CashFee            int64  `xml:"cash_fee"`             // 现金支付金额订单现金支付金额，详见支付金额
 	CashFeeType        string `xml:"cash_fee_type"`        // 货币类型，符合ISO 4217标准的三位字母代码，默认人民币：CNY，其他值列表详见货币类型
 
-	// 代金券相关
-	// 暂时不添加，不需要
+	// 代金券相关，签名要用到，为空的，先注掉
+	// CouponFee   int64  `xml:"coupon_fee"`   // 代金券金额
+	// CouponCount int64  `xml:"coupon_count"` // 代金券使用数量
+	// CouponType  int64  `xml:"coupon_type"`  // 代金券类型
+	// CouponId    string `xml:"coupon_id"`    // 代金券ID
 
 	TransactionId string    `xml:"transaction_id"` // 微信支付订单号
 	OutTradeNo    string    `xml:"out_trade_no"`   // 商户系统的订单号，与请求一致。
