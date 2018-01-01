@@ -1,6 +1,12 @@
 package pay
 
-import "time"
+type PayReturn struct {
+	XMLName struct{} `xml:"xml" structs:"-"`
+
+	// 必选返回
+	ReturnCode string `xml:"return_code" structs:"return_code"` // 返回状态码
+	ReturnMsg  string `xml:"return_msg" structs:"return_msg"`   // 返回信息
+}
 
 type PayCompleteResponse struct {
 	XMLName struct{} `xml:"xml" json:"-" structs:"-"`
@@ -41,8 +47,8 @@ type PayCompleteResponse struct {
 	// CouponType  int64  `xml:"coupon_type" structs:"coupon_type"`  // 代金券类型
 	// CouponId    string `xml:"coupon_id" structs:"coupon_id"`    // 代金券ID
 
-	TransactionId string    `xml:"transaction_id" structs:"transaction_id"` // 微信支付订单号
-	OutTradeNo    string    `xml:"out_trade_no" structs:"out_trade_no"`     // 商户系统的订单号，与请求一致。
-	Attach        string    `xml:"attach" structs:"attach"`                 // 附加数据，原样返回
-	TimeEnd       time.Time `xml:"time_end" structs:"time_end"`             // 订单支付时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。其他详见时间规则
+	TransactionId string `xml:"transaction_id" structs:"transaction_id"` // 微信支付订单号
+	OutTradeNo    string `xml:"out_trade_no" structs:"out_trade_no"`     // 商户系统的订单号，与请求一致。
+	Attach        string `xml:"attach" structs:"attach"`                 // 附加数据，原样返回
+	TimeEnd       string `xml:"time_end" structs:"time_end"`             // 订单支付时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。其他详见时间规则
 }
