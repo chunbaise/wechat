@@ -2,16 +2,12 @@ package pay
 
 import "time"
 
-type PayReturn struct {
-	// 必选返回
-	ReturnCode string `xml:"return_code" structs:"return_code"` // 返回状态码
-	ReturnMsg  string `xml:"return_msg" structs:"return_msg"`   // 返回信息
-}
-
 type PayCompleteResponse struct {
 	XMLName struct{} `xml:"xml" json:"-" structs:"-"`
 
-	PayReturn
+	// 必选返回
+	ReturnCode string `xml:"return_code" structs:"return_code"` // 返回状态码
+	ReturnMsg  string `xml:"return_msg" structs:"return_msg"`   // 返回信息
 	// 以下字段在return_code为SUCCESS的时候有返回
 	Appid      string `xml:"appid" structs:"appid"`             // 小程序ID
 	MchId      string `xml:"mch_id" structs:"mch_id"`           // 商户号
@@ -23,7 +19,7 @@ type PayCompleteResponse struct {
 	SignType string `xml:"sign_type" structs:"sign_type"` // 签名类型
 
 	// 业务结果相关
-	ReturnCode string `xml:"return_code" structs:"return_code"`   // 业务结果
+	ResultCode string `xml:"result_code" structs:"result_code"`   // 业务结果
 	ErrCode    string `xml:"err_code" structs:"err_code"`         // 错误代码
 	ErrCodeDes string `xml:"err_code_des" structs:"err_code_des"` // 错误代码描述
 
